@@ -1,0 +1,12 @@
+.Header {
+    background-color: green;
+}
+
+.Header-menu{
+    background-color: black;
+}
+
+.Header-logout{
+    text-align: right;
+    background-color: red;
+}

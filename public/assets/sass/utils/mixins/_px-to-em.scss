@@ -1,0 +1,5 @@
+$base-font: 14;
+
+@function em($pixels, $context: $base-font) {
+  @return #{$pixels/$context}em
+}

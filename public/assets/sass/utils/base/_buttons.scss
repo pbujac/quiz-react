@@ -1,0 +1,34 @@
+button, .btn {
+  font-family: $second-font-family;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: em(12);
+  font-weight: 500;
+  background-color: $yellow;
+  color: $natural-white;
+
+  &:disabled {
+    background-color: $grey-white;
+  }
+}
+
+.btn-submit, .btn-cancel {
+  color: $white !important;
+  font-size: em(12);
+}
+
+.btn-submit {
+  background-color: $green;
+}
+
+.btn-cancel {
+  background-color: $red;
+}
+
+.btn-info{
+  background-color: $grey;
+}
+button.selected {
+  background-color: $yellow;
+  color: $white;
+}

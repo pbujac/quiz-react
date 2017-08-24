@@ -5,18 +5,16 @@ section {
   .line {
     border-top: em(5) solid $yellow;
     width: 10%;
-    margin: 0 auto em(10);
+    margin: 0 auto em(20);
   }
 
   .card {
     margin: em(10);
+    padding: em(50);
     background: $white;
     font-size: em(10);
-
-    .medium-6, .medium-12 {
-      padding: em(3) em(20);
-    }
   }
+
   .error {
     margin-bottom: em(15);
     font-size: em(12);

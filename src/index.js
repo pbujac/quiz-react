@@ -1,7 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App'
+import {Router, browserHistory} from 'react-router';
+import routes from './routes';
 import './index.css'
 
 const root = document.querySelector('#root');
-ReactDOM.render(<App />, root);
+ReactDOM.render(
+    <Router routes={routes} history={browserHistory}/>,
+    root
+);

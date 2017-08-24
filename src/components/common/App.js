@@ -1,10 +1,13 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-const App = () => (
+const App = (props) => (
     <div className="container">
         <div className="row">
             <div className="large-12 columns">
-                It's gonna contain the header , footer and content.
+                <MuiThemeProvider>
+                    {props.children}
+                </MuiThemeProvider>
             </div>
         </div>
     </div>

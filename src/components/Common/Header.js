@@ -1,24 +1,13 @@
 import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import {GridList} from 'material-ui/GridList';
+import { Link, IndexLink } from 'react-router';
 import './Header.css'
-import FontIcon from 'material-ui/FontIcon';
-import {blue500, red500, greenA200} from 'material-ui/styles/colors';
-
-
-const iconStyles = {
-    marginRight: 24,
-};
 
 const Header = () => (
     <GridList cols={2} cellHeight={40} className="Header">
         <div className="Header-menu">
-            {/*<FontIcon*/}
-            {/*className="muidocs-icon-action-home"*/}
-            {/*style={iconStyles}*/}
-            {/*color={red500}*/}
-            {/*hoverColor={greenA200}*/}
-            {/*/>*/}
+            {/*<Link to="/login">Log in</Link>*/}
             <FlatButton label="Home" primary={true}/>
             <FlatButton label="Quizzes" primary={true}/>
         </div>

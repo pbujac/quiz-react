@@ -51,3 +51,9 @@ section {
     display: inline;
   }
 }
+
+.material-icons{
+  font-size: em(16);
+  padding: em(5);
+  color: $grey;
+}

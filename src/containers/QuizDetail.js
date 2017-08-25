@@ -24,7 +24,6 @@ class QuizDetail extends Component {
 
     componentDidMount() {
         QuizService.getQuizById(this.props.params.id).then(quiz => {
-            console.log(quiz.questions);
             this.setState({
                 quiz: quiz
             });

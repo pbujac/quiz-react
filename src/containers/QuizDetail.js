@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import QuizService from "../models/QuizService";
 import {Paper} from "material-ui";
-import Question from "../components/Question";
 import QuestionList from "../components/QuestionList";
 
 class QuizDetail extends Component {
@@ -24,7 +23,7 @@ class QuizDetail extends Component {
     };
 
     componentDidMount() {
-        QuizService.getQuizById(this.props.params.id).then(quiz => {
+        QuizService.getQuizById(this.props.match.params.id).then(quiz => {
             this.setState({
                 quiz: quiz
             });
@@ -35,7 +34,7 @@ class QuizDetail extends Component {
         return (
             <section className="quiz-detail">
 
-                <Paper zDepth={1} className="large-12 columns card">
+                <Paper zDepth={1} className="card">
 
                     <h2>{this.state.quiz.title}</h2>
                     <div className="text-underline"/>
@@ -45,7 +44,7 @@ class QuizDetail extends Component {
                         <p>Author: {this.state.quiz.author.first_name} {this.state.quiz.author.last_name}</p>
                     </div>
 
-                    <p className="large-9 columns description">Description: {this.state.quiz.description}</p>
+                    <p className="description">Description: {this.state.quiz.description}</p>
 
 
                     <QuestionList questions={this.state.quiz.questions}/>

@@ -8,7 +8,6 @@ const Header = () => (
     <GridList cols={2} cellHeight={40} className="Header">
         <div>
             <FlatButton containerElement={<Link to="/"/>} label="Home" primary={true}/>
-            <FlatButton containerElement={<Link to="/quizzes"/>} label="Quizzes" primary={true}/>
         </div>
         <div className="Header-logout">
             <FlatButton label="Logout" primary={true}/>

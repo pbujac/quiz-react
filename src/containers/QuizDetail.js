@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import QuizService from "../models/QuizService";
-import {Paper} from "material-ui";
-import QuestionList from "../components/QuestionList";
+import QuizService from '../models/QuizService';
+import {Paper} from 'material-ui';
+import QuestionList from '../components/QuestionList';
+import '../css/QuizDetail.css';
 
 class QuizDetail extends Component {
 
@@ -35,10 +36,10 @@ class QuizDetail extends Component {
         return (
             <section className="quiz-detail">
 
-                <Paper zDepth={1} className="card">
+                <Paper zDepth={1} className='card'>
 
                     <h2>{this.state.quiz.title}</h2>
-                    <div className="text-underline"/>
+                    <div className='text-underline'/>
 
                     <div className="category">
                         <p>Category: {this.state.quiz.category.title}</p>

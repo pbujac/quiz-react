@@ -2,9 +2,8 @@ import React from 'react';
 import Answer from './Answer';
 import '../css/AnswerList.css';
 
-const AnswerList = (props) => {
+const AnswerList = ({answers}) => {
 
-    const {answers} = this.props;
 
     return (
         <div className="answer-list centered">

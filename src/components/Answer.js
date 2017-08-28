@@ -1,9 +1,8 @@
 import React from 'react';
 import '../css/Answer.css';
 
-const Answer = (props) => {
+const Answer = ({answer}) => {
 
-    const {answer} = this.props;
 
     let checkCorrectAnswer = () => {
         return answer.correct

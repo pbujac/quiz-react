@@ -48,7 +48,6 @@ class QuizDetail extends Component {
 
                     <p className="description">Description: {this.state.quiz.description}</p>
 
-
                     <QuestionList questions={this.state.quiz.questions}/>
 
                 </Paper>

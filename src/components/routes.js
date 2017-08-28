@@ -1,32 +1,12 @@
-import Home from './Home';
-import App from "./App";
+import React from 'react';
+import {Switch, Route} from 'react-router-dom'
+import Home from "./Home";
 
-const routes = {
-    // base component (wrapper for the whole application).
-    component: App,
-    childRoutes: [
+const Routes = () => (
+    <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/home' component={Home}/>
+    </Switch>
+);
 
-        {
-            path: '/',
-            component: Home
-        },
-        {
-            path: '/home',
-            component: Home
-        }
-
-    ]
-};
-
-export default routes;
-
-// import Home from "./Home";
-// import {Route} from "react-router";
-// import * as React from "react";
-// import App from "./App";
-//
-// export default (
-//     <Route path="/" component={App}>
-//         <IndexRoute component={Home}/>
-//     </Route>
-// );
+export default Routes;

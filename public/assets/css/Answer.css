@@ -1,0 +1,20 @@
+.answer p {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0.71429em 0;
+}
+
+.answer .material-icons {
+    border: 1px solid #D7D8DD;
+    margin-right: 0.71429em;
+    border-radius: 50%;
+}
+
+.answer .correct {
+    border-color: #6A8C35;
+}
+
+.answer .incorrect {
+    border-color: #9B1D20;
+}

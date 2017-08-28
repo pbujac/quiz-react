@@ -6,7 +6,7 @@ const QuestionList = (props) => {
     return (
         <div>
             <h3>Questions</h3>
-            <div className="answer-list centered">
+            <div className="centered">
 
                 {props.questions.map((question, index) =>
                     <Question key={index} index={index} question={question}/>

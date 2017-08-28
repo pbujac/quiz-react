@@ -4,7 +4,7 @@ import BrowserRouter from "react-router-dom/es/BrowserRouter";
 import Header from "./Common/Header";
 import Footer from "./Common/Footer";
 import Routes from './routes.js';
-import './App.css';
+import 'public/assets/css/App.css';
 
 const App = () => (
     <div className="App">

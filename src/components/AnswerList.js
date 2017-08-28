@@ -1,5 +1,6 @@
 import React from 'react';
-import Answer from "./Answer";
+import Answer from './Answer';
+import 'public/assets/css/AnswerList.css';
 
 const AnswerList = (props) => {
 

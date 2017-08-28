@@ -1,4 +1,5 @@
 import React from 'react';
+import 'public/assets/css/Answer.css';
 
 const Answer = (props) => {
 

@@ -2,19 +2,21 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700");
 
-
 body {
     color: #000000;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: 300; }
+    font-weight: 300;
+    margin: 2px
+}
 
 h1 {
     font-family: "Quicksand", sans-serif;
     font-size: 22px;
     margin: 0 0 0.71429em;
     text-transform: uppercase;
-    letter-spacing: 0.07143em; }
+    letter-spacing: 0.07143em;
+}
 
 h2,
 h3,
@@ -25,7 +27,8 @@ h6 {
     font-size: 20px;
     margin: 0.35714em 0;
     text-transform: uppercase;
-    font-weight: 700; }
+    font-weight: 700;
+}
 
 p {
     margin: 0 0 0.71429em;
@@ -36,22 +39,24 @@ p {
 a {
     color: #000000;
     text-decoration: none;
-    transition: all 0.5s ease; }
+    transition: all 0.5s ease;
+}
+
 a:active, a:focus, a:hover {
     color: #DBAB5E;
     cursor: pointer;
     transition: all 0.5s ease;
     outline: none;
-    text-decoration: none; }
+    text-decoration: none;
+}
 
 hr {
     border-bottom: 1px solid #D7D8DD;
     border-left: 0;
     border-right: 0;
     border-top: 0;
-    margin: 1.5em 0; }
-
-
+    margin: 1.5em 0;
+}
 
 .container {
     padding: 0.35714em 1.42857em;
@@ -130,8 +135,9 @@ button.selected {
     color: #ffffff;
 }
 
-.card{
+.card {
     padding: 30px;
+    margin: 10px 10px 30px;
 }
 
 .quiz-detail h3 {
@@ -158,49 +164,4 @@ button.selected {
     font-weight: 400;
     margin: 1.42857em auto 2.14286em;
     padding: 0.71429em;
-}
-
-.question hr {
-    margin: 10px;
-    width: 90%;
-}
-
-.question .question-text {
-    width: 90%;
-    font-size: 18px;
-}
-
-.question p {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 500;
-}
-
-.question p span {
-    padding: 0 1.07143em;
-}
-
-.answer p {
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    padding: 0;
-    margin: 0.71429em 0;
-}
-
-.answer .material-icons {
-    border: 1px solid #D7D8DD;
-    margin-right: 0.71429em;
-    border-radius: 50%;
-}
-
-.answer .correct {
-    border-color: #6A8C35;
-}
-
-.answer .incorrect {
-    border-color: #9B1D20;
-}
-
-.answer-list {
-    padding: 1.42857em;
-    text-align: center;
 }

@@ -6,7 +6,7 @@ import Link from "react-router-dom/es/Link";
 
 const Header = () => (
     <GridList cols={2} cellHeight={40} className="Header">
-        <div className="Header-menu">
+        <div>
             <FlatButton containerElement={<Link to="/"/>} label="Home" primary={true}/>
             <FlatButton containerElement={<Link to="/quizzes"/>} label="Quizzes" primary={true}/>
         </div>

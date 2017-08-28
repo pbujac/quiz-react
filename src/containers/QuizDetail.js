@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import QuizService from "../models/QuizService";
 import {Paper} from "material-ui";
 import Question from "../components/Question";
+import QuestionList from "../components/QuestionList";
 
 class QuizDetail extends Component {
 
@@ -46,11 +47,9 @@ class QuizDetail extends Component {
 
                     <p className="large-9 columns description">Description: {this.state.quiz.description}</p>
 
-                    <h3>Questions</h3>
 
-                    {this.state.quiz.questions.map((question,index) =>
-                        <Question key={index} index={index} question={question}/>
-                    )}
+                    <QuestionList questions={this.state.quiz.questions}/>
+
                 </Paper>
             </section>
         );

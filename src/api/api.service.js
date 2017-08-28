@@ -17,7 +17,7 @@ class ApiService {
         return API_END_POINT + '/' + path;
     }
 
-    static getApi(path) {
+    static get(path) {
 
         this.getAuthorizationHeader();
         let endPoint = this.getEndPoint(path);

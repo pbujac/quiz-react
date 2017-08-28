@@ -8,7 +8,7 @@ class QuizService {
 
     static getQuizById(id) {
 
-        return api.getApi(`quizzes/${id}`).then(value => value,);
+        return api.get(`quizzes/${id}`).then(value => value,);
     }
 }
 

@@ -5,7 +5,7 @@ const API_END_POINT = 'http://localhost/app_dev.php/api/v1';
 
 class ApiService {
 
-    static getAuthorizationHeader() {
+    static setDefaultAuthorizationHeader() {
         let key = 'authentication';
 
         if (localStorage.getItem(key) !== null) {
@@ -19,7 +19,7 @@ class ApiService {
 
     static get(path) {
 
-        this.getAuthorizationHeader();
+        this.setDefaultAuthorizationHeader();
         let endPoint = this.getEndPoint(path);
 
         return Axios.get(endPoint).then(response => {
@@ -31,7 +31,7 @@ class ApiService {
 
     static post(path, body) {
 
-        this.getAuthorizationHeader();
+        this.setDefaultAuthorizationHeader();
         let endPoint = this.getEndPoint(path);
         body = KeyTransformer.transformToSnakeCase(body);
 

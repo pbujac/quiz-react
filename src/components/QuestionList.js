@@ -3,12 +3,14 @@ import Question from './Question';
 
 const QuestionList = (props) => {
 
+    const {questions} = this.props;
+
     return (
         <div>
             <h3>Questions</h3>
             <div className="centered">
 
-                {props.questions.map((question, index) =>
+                {questions.map((question, index) =>
                     <Question key={index} index={index} question={question}/>
                 )}
 

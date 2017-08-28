@@ -24,7 +24,7 @@ class QuizDetail extends Component {
     };
 
     componentDidMount() {
-        console.log(this.props.match.params.id);
+
         QuizService.getQuizById(this.props.match.params.id).then(quiz => {
             this.setState({
                 quiz: quiz
@@ -33,22 +33,25 @@ class QuizDetail extends Component {
     }
 
     render() {
+
+        const {quiz} = this.state;
+
         return (
             <section className="quiz-detail">
 
                 <Paper zDepth={1} className='card'>
 
-                    <h2>{this.state.quiz.title}</h2>
+                    <h2>{quiz.title}</h2>
                     <div className='text-underline'/>
 
                     <div className="category">
-                        <p>Category: {this.state.quiz.category.title}</p>
-                        <p>Author: {this.state.quiz.author.first_name} {this.state.quiz.author.last_name}</p>
+                        <p>Category: {quiz.category.title}</p>
+                        <p>Author: {quiz.author.first_name} {quiz.author.last_name}</p>
                     </div>
 
-                    <p className="description">Description: {this.state.quiz.description}</p>
+                    <p className="description">Description: {quiz.description}</p>
 
-                    <QuestionList questions={this.state.quiz.questions}/>
+                    <QuestionList questions={quiz.questions}/>
 
                 </Paper>
             </section>

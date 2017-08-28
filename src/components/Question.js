@@ -3,16 +3,19 @@ import AnswerList from './AnswerList';
 import '../css/Question.css';
 
 const Question = (props) => {
+
+    const {index, question} = this.props;
+
     return (
         <div className="question">
 
             <hr className="centered"/>
             <p className="question-text centered">
-                <span>{props.index + 1}.</span>
-                {props.question.text}
+                <span>{index + 1}.</span>
+                {question.text}
             </p>
 
-            <AnswerList answers={props.question.answers}/>
+            <AnswerList answers={question.answers}/>
         </div>
     );
 };

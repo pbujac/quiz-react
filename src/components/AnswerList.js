@@ -4,9 +4,11 @@ import '../css/AnswerList.css';
 
 const AnswerList = (props) => {
 
+    const {answers} = this.props;
+
     return (
         <div className="answer-list centered">
-            {props.answers.map(answer =>
+            {answers.map(answer =>
                 <Answer key={answer.id} answer={answer}/>
             )}
         </div>

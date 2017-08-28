@@ -1,8 +1,8 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import GridList from 'material-ui/GridList';
 import FlatButton from 'material-ui/FlatButton';
-import {GridList} from 'material-ui/GridList';
 import './Header.css'
-import Link from "react-router-dom/es/Link";
 
 const Header = () => (
     <GridList cols={2} cellHeight={40} className="Header">
@@ -11,7 +11,7 @@ const Header = () => (
             <FlatButton containerElement={<Link to="/quizzes"/>} label="Quizzes" primary={true}/>
         </div>
         <div className="Header-logout">
-            <FlatButton containerElement={<Link to="/logout"/>} label="Logout" primary={true}/>
+            <FlatButton label="Logout" primary={true}/>
         </div>
     </GridList>
 );

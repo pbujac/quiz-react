@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700");
+
+body {
+    color: #000000;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 2px
+}
+
+h1 {
+    font-family: "Quicksand", sans-serif;
+    font-size: 22px;
+    margin: 0 0 0.71429em;
+    text-transform: uppercase;
+    letter-spacing: 0.07143em;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+    margin: 0.35714em 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+p {
+    margin: 0 0 0.71429em;
+    padding: 0.71429em 0.71429em 0.71429em 0;
+    line-height: 1.7em;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+a:active, a:focus, a:hover {
+    color: #DBAB5E;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    outline: none;
+    text-decoration: none;
+}
+
+hr {
+    border-bottom: 1px solid #D7D8DD;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: 1.5em 0;
+}
+
+.container {
+    padding: 0.35714em 1.42857em;
+}
+
+.centered {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+hr {
+    padding: 0;
+    margin: 20px;
+}
+
+section {
+    padding: 1.42857em 2.85714em 0;
+    text-align: center;
+}
+
+section .line {
+    border-top: 0.35714em solid #DBAB5E;
+    width: 10%;
+    margin: 0 auto 0.71429em;
+}
+
+section .display-inline {
+    display: inline;
+}
+
+.material-icons {
+    font-size: 1.14286em;
+    padding: 0.35714em;
+    color: #3A3F3F;
+}
+
+button, .btn {
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: #DBAB5E;
+    color: #E9E9E9;
+}
+
+button:disabled, .btn:disabled {
+    background-color: #D7D8DD;
+}
+
+.btn-submit, .btn-cancel {
+    color: #ffffff !important;
+}
+
+.btn-submit {
+    background-color: #6A8C35;
+}
+
+.btn-cancel {
+    background-color: #9B1D20;
+}
+
+.btn-info {
+    background-color: #3A3F3F;
+}
+
+button.selected {
+    background-color: #DBAB5E;
+    color: #ffffff;
+}
+
+.card {
+    padding: 30px;
+    margin: 10px 10px 30px;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import GridList from 'material-ui/GridList';
 import FlatButton from 'material-ui/FlatButton';
-import './Header.css'
+import '../../css/common/Header.css'
 
 const Header = () => (
     <GridList cols={2} cellHeight={40} className="Header">

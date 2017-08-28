@@ -1,9 +1,7 @@
 import React from 'react';
 import Question from './Question';
 
-const QuestionList = (props) => {
-
-    const {questions} = this.props;
+const QuestionList = ({questions}) => {
 
     return (
         <div>

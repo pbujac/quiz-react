@@ -3,7 +3,7 @@ import api from '../api/ApiService';
 class QuizService {
 
     static getAllQuizzes() {
-        return api.getApi('quizzes').then(value => value._embedded.quizzes,);
+        return api.get('quizzes').then(value => value._embedded.quizzes,);
     }
 
     static getQuizById(id) {

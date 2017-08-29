@@ -4,7 +4,7 @@ import {Paper} from 'material-ui';
 import QuestionList from '../components/QuestionList';
 import '../css/QuizDetail.css';
 
-class QuizDetail extends Component {
+class QuizDetailPage extends Component {
 
     constructor(props) {
         super(props);
@@ -59,4 +59,4 @@ class QuizDetail extends Component {
     }
 }
 
-export default QuizDetail;
+export default QuizDetailPage;

@@ -1,45 +1,64 @@
 import React from 'react';
 import {Paper, RaisedButton, TextField} from "material-ui";
 import PropTypes from 'prop-types';
-import '../css/QuizForm.css'
+import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import CategoryListSelect from "../containers/CategoryListSelect";
+import '../css/QuizForm.css'
 
-const QuizForm = ({onSubmit, onChange, errors, successMessage, quiz, categories}) => {
+const QuizForm = ({
+                      onSubmit,
+                      onChange,
+                      onAddQuestionBtnClick,
+                      errors,
+                      successMessage,
+                      quiz,
+                      categories,
+                      questions
+                  }) => {
 
     return (
         <section className="quiz-detail">
 
             <Paper zDepth={1} className='card'>
 
-                <form action="/" onSubmit={onSubmit} className="form">
+                <ValidatorForm onSubmit={onSubmit} className="form">
                     <h2>Create Quiz</h2>
                     <div className='text-underline'/>
 
                     {successMessage && <p className="success-message">{successMessage}</p>}
-                    {errors.summary && <p className="error-message">{errors.summary}</p>}
+                    {errors && <p className="error-message">{errors.summary}</p>}
 
-                    <TextField
+                    <TextValidator
                         className="input-form"
                         floatingLabelText="Title"
                         name="title"
+                        validators={['required']}
+                        errorMessages={['This field is required']}
                         errorText={errors.title}
                         onChange={onChange}
                         value={quiz.title}/>
 
-                    <TextField
+                    <TextValidator
                         className="input-form"
                         floatingLabelText="Description"
                         name="description"
+                        validators={['required']}
+                        errorMessages={['This field is required']}
                         onChange={onChange}
                         errorText={errors.description}
                         value={quiz.description}/>
 
-                    <CategoryListSelect onChange={onChange} categories={categories}/>
+                    <CategoryListSelect onChange={onChange} categories={categories} quiz={quiz}/>
+
+                    {questions}
+
+                    <RaisedButton label="Add Question" onClick={onAddQuestionBtnClick} className="btn-left btn-answer"
+                                  primary/>
 
                     <br/>
 
-                    <RaisedButton type="submit" label="Create Quiz" className="btn" primary/>
-                </form>
+                    <RaisedButton type="submit" label="Create Quiz" className="btn btn-submit" primary/>
+                </ValidatorForm>
 
             </Paper>
         </section>

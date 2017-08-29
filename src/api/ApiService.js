@@ -24,9 +24,7 @@ class ApiService {
 
         return Axios.get(endPoint).then(response => {
             return response.data;
-        }).catch(error => {
-            throw(error);
-        });
+        }).catch(this.handleError.bind(this));
     }
 
     static post(path, body) {
@@ -38,10 +36,27 @@ class ApiService {
         return Axios.post(endPoint, body).then(response => {
 
             return response.data;
-        }).catch(error => {
-            throw(error);
-        });
+        }).catch(this.handleError.bind(this));
     }
+
+    static handleError(error) {
+
+        if (error.response) {
+            let errors = error.response.data;
+
+            if (error.status === 401) {
+
+                throw({error: 'Credentials are incorrect'});
+
+            } else if (error.status === 400) {
+
+                throw({error: errors});
+            }
+        }
+
+        throw(error);
+    }
+
 }
 
 export default ApiService;

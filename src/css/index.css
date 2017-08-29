@@ -7,7 +7,8 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 300;
-    margin: 2px
+    margin: 2px;
+    background-color: antiquewhite;
 }
 
 h1 {
@@ -41,7 +42,6 @@ a {
     text-decoration: none;
     transition: all 0.5s ease;
 }
-
 a:active, a:focus, a:hover {
     color: #DBAB5E;
     cursor: pointer;
@@ -138,4 +138,34 @@ button.selected {
 .card {
     padding: 30px;
     margin: 10px 10px 30px;
+}
+
+.btn-left {
+    text-align: left;
+    float: left;
+    margin: 20px;
+}
+
+.btn-left button {
+    background-color: #DBAB5E !important;
+}
+.btn-answer{
+    clear: both;
+    display: block;
+}
+.btn-submit{
+    clear: both;
+    display: block;
+    width: 100%;
+}
+
+.green button{
+    background-color: #6A8C35!important;
+}
+.red button{
+    background-color: #9B1D20!important;
+}
+
+label{
+    text-align: left;
 }

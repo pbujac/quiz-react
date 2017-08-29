@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import Header from './Common/Header';
 import Footer from './Common/Footer';
 import Home from './Home';
-import QuizDetail from '../containers/QuizDetail';
+import QuizDetail from '../containers/QuizDetailPage';
 import QuizCreate from "../containers/QuizCreate";
 import '../css/App.css';
 

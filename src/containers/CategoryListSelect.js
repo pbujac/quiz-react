@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {MenuItem, SelectField} from "material-ui";
+import PropTypes from 'prop-types';
+import {SelectValidator} from "react-material-ui-form-validator";
 
 class CategoryListSelect extends Component {
 
@@ -7,32 +9,46 @@ class CategoryListSelect extends Component {
         super(props);
 
         this.state = {
-            category: {
-                id: ''
-            }
+            value: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
 
-    handleChange(event) {
-        console.log(event);
-    }
+    /**
+     * @param event
+     * @param index
+     * @param value
+     */
+    handleChange = (event, index, value) => {
 
+        this.props.quiz.category.id = value;
+        this.setState({value});
+    };
 
     render() {
         return (
-            <SelectField className="input-form"
-                         floatingLabelText="Category"
-                         onChange={this.handleChange}>
+            <SelectValidator className="input-form"
+                             floatingLabelText="Category"
+                             validators={['required']}
+                             errorMessages={['This field is required']}
+                             name="category"
+                             value={this.state.value}
+                             onChange={this.handleChange}>
 
                 {this.props.categories.map((category, index) =>
-                    <MenuItem key={index} value={category} primaryText={category.title}/>
+                    <MenuItem key={index} value={category.id} primaryText={category.title}/>
                 )}
-            </SelectField>
+            </SelectValidator>
         );
     }
 }
+
+CategoryListSelect.propTypes = {
+    quiz: PropTypes.object.isRequired,
+    categories: PropTypes.array.isRequired,
+};
+
 
 export default CategoryListSelect;

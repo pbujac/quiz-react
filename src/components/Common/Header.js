@@ -9,6 +9,7 @@ const Header = () => (
         <div>
             <FlatButton containerElement={<Link to="/"/>} label="Home" primary={true}/>
             <FlatButton containerElement={<Link to="/quizzes"/>} label="Quizzes" primary={true}/>
+            <FlatButton containerElement={<Link to="/quiz-create"/>} label="Add quiz" primary={true}/>
         </div>
         <div className="Header-logout">
             <FlatButton label="Logout" primary={true}/>

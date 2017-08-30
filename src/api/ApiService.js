@@ -45,12 +45,15 @@ class ApiService {
             let errors = error.response.data;
 
             if (error.status === 401) {
+                errors = {
+                    message: 'Credentials are incorrect'
+                };
 
-                throw({error: 'Credentials are incorrect'});
+                throw(errors);
 
             } else if (error.status === 400) {
 
-                throw({error: errors});
+                throw(errors);
             }
         }
 

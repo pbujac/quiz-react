@@ -169,3 +169,13 @@ button.selected {
 label{
     text-align: left;
 }
+
+.error-message{
+    font-family: "Quicksand", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 0.71429em;
+    text-transform: uppercase;
+    letter-spacing: 0.07143em;
+    color: #9B1D20;
+}

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Checkbox, TextField} from 'material-ui';
+import {Checkbox} from 'material-ui';
 import PropTypes from 'prop-types';
+import {TextValidator} from "react-material-ui-form-validator";
 import '../css/AnswerAdd.css'
+
 
 class AnswerAdd extends Component {
 
@@ -24,9 +26,7 @@ class AnswerAdd extends Component {
 
         answer[field] = event.target.value;
 
-        this.setState({
-            answer
-        });
+        this.setState({answer});
     };
 
     updateCheck() {
@@ -36,21 +36,23 @@ class AnswerAdd extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <div className="answer">
-                    <TextField
-                        className="input-form"
-                        floatingLabelText="Answer Text"
-                        name="text"
-                        onChange={this.handleChange}
-                        value={this.props.answer.text}/>
+        let answer = this.props.answer;
 
-                    <Checkbox
-                        label="Correct"
-                        checked={this.props.answer.correct}
-                        onCheck={this.updateCheck.bind(this)}/>
-                </div>
+        return (
+            <div className="answer">
+                <TextValidator
+                    className="input-form"
+                    floatingLabelText="Answer Text"
+                    name="text"
+                    validators={['required']}
+                    errorMessages={['This field is required']}
+                    onChange={this.handleChange}
+                    value={answer.text}/>
+
+                <Checkbox
+                    label="Correct"
+                    checked={answer.correct}
+                    onCheck={this.updateCheck.bind(this)}/>
             </div>
         );
     }

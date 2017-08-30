@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import QuizForm from "../components/QuizForm";
 import CategoryService from "../models/CategoryService";
-import QuestionAdd from "./QuestionAdd";
 import QuizService from "../models/QuizService";
+import {QuizAddValidator} from "../validators/QuizAddValidator";
 
 class QuizCreate extends Component {
 
@@ -14,7 +14,6 @@ class QuizCreate extends Component {
 
         this.state = {
             errors: {},
-            successMessage: '',
             categories: [],
             quiz: {
                 title: '',
@@ -23,8 +22,7 @@ class QuizCreate extends Component {
                 category: {
                     id: ''
                 }
-            },
-            questionsArray: []
+            }
         };
 
         this.processForm = this.processForm.bind(this);
@@ -39,44 +37,36 @@ class QuizCreate extends Component {
 
         event.preventDefault();
 
-        let isValid = this.validateQuiz(this.state.quiz);
+        let validForm = QuizAddValidator.validateQuiz(this.state.quiz, this.state.errors);
 
-        if (isValid) {
-
-            QuizService.saveQuiz(this.state.quiz).then((response) => {
-                    this.props.history.replace('/');
-                }
-            ).catch(error => {
-                this.setErrorMessage(error.response.data.details.title.message);
-            });
-        }
-
-    }
-
-    validateQuiz(quiz) {
-
-        if (!quiz.questions.length > 0) {
-            this.setErrorMessage('You must specify at least one Question');
-
-            return false;
+        if (validForm.isValid) {
+            this.saveQuiz();
         } else {
-            quiz.questions.map(q => {
-                if (!q.answers.length > 0) {
-                    this.setErrorMessage('You must specify at least one Answer');
-                }
-            });
+            this.setErrorMessage(validForm.message.summary)
         }
 
-        return true;
     }
 
+    saveQuiz() {
+        QuizService.saveQuiz(this.state.quiz).then((response) => {
+                this.props.history.replace('/');
+            }
+        ).catch(error => {
+            if (error.response.data.details.title.message) {
+                this.setErrorMessage(error.response.data.details.title.message);
+            }
+        });
+    }
+
+    /**
+     * @param message
+     */
     setErrorMessage(message) {
         this.setState({errors: {summary: message}});
     }
 
     onAddQuestionBtnClick() {
 
-        let questions = this.state.questionsArray;
         let quiz = this.state.quiz;
         let question = {
             text: '',
@@ -85,13 +75,7 @@ class QuizCreate extends Component {
 
         quiz.questions.push(question);
 
-
-        this.setState({
-            questions: questions.push(
-                <QuestionAdd key={questions.length} question={question}/>
-            ),
-            quiz: quiz
-        });
+        this.setState({quiz: quiz});
     }
 
 
@@ -116,17 +100,16 @@ class QuizCreate extends Component {
     }
 
     render() {
+        let quizForm = this.state;
 
         return (
             <QuizForm
                 onSubmit={this.processForm}
                 onChange={this.changeQuiz}
                 onAddQuestionBtnClick={this.onAddQuestionBtnClick}
-                errors={this.state.errors}
-                successMessage={this.state.successMessage}
-                quiz={this.state.quiz}
-                categories={this.state.categories}
-                questions={this.state.questionsArray}/>
+                errors={quizForm.errors}
+                quiz={quizForm.quiz}
+                categories={quizForm.categories}/>
         );
     }
 }

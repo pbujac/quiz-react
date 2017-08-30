@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {RaisedButton, TextField} from 'material-ui';
+import {RaisedButton} from 'material-ui';
 import PropTypes from 'prop-types';
+import {TextValidator} from "react-material-ui-form-validator";
 import AnswerAdd from './AnswerAdd';
 import '../css/QuestionAdd.css'
+
 
 class QuestionAdd extends Component {
 
@@ -11,10 +13,6 @@ class QuestionAdd extends Component {
      */
     constructor(props) {
         super(props);
-
-        this.state = {
-            answersArray: []
-        };
 
         this.handleChange = this.handleChange.bind(this);
         this.onAddAnswerBtnClick = this.onAddAnswerBtnClick.bind(this);
@@ -35,7 +33,6 @@ class QuestionAdd extends Component {
 
     onAddAnswerBtnClick() {
 
-        let answers = this.state.answersArray;
         let question = this.props.question;
         let answer = {
             text: '',
@@ -44,26 +41,26 @@ class QuestionAdd extends Component {
 
         question.answers.push(answer);
 
-        this.setState({
-            answers: answers.push(
-                <AnswerAdd key={answers.length} answer={answer}/>
-            ),
-            question: question
-        });
+        this.setState({question: question});
     }
 
     render() {
+        let question = this.props.question;
 
         return (
             <div className="question">
-                <TextField
+                <TextValidator
                     className="input-form"
                     floatingLabelText="Question Text"
                     name="text"
+                    validators={['required']}
+                    errorMessages={['This field is required']}
                     onChange={this.handleChange}
-                    value={this.props.question.text}/>
+                    value={question.text}/>
 
-                {this.state.answersArray}
+                {question.answers.map((answer, index) =>
+                    <AnswerAdd key={index} answer={answer}/>
+                )}
 
                 <RaisedButton label="Add Answer" onClick={this.onAddAnswerBtnClick} primary/>
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MenuItem, SelectField} from "material-ui";
+import {MenuItem} from "material-ui";
 import PropTypes from 'prop-types';
 import {SelectValidator} from "react-material-ui-form-validator";
 

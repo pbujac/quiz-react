@@ -1,19 +1,18 @@
 import React from 'react';
-import {Paper, RaisedButton, TextField} from "material-ui";
+import {Paper, RaisedButton} from "material-ui";
 import PropTypes from 'prop-types';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import CategoryListSelect from "../containers/CategoryListSelect";
 import '../css/QuizForm.css'
+import QuestionAdd from "../containers/QuestionAdd";
 
 const QuizForm = ({
                       onSubmit,
                       onChange,
                       onAddQuestionBtnClick,
                       errors,
-                      successMessage,
                       quiz,
-                      categories,
-                      questions
+                      categories
                   }) => {
 
     return (
@@ -25,7 +24,6 @@ const QuizForm = ({
                     <h2>Create Quiz</h2>
                     <div className='text-underline'/>
 
-                    {successMessage && <p className="success-message">{successMessage}</p>}
                     {errors && <p className="error-message">{errors.summary}</p>}
 
                     <TextValidator
@@ -50,14 +48,16 @@ const QuizForm = ({
 
                     <CategoryListSelect onChange={onChange} categories={categories} quiz={quiz}/>
 
-                    {questions}
+                    {quiz.questions.map((question, index) =>
+                        <QuestionAdd key={index} question={question}/>
+                    )}
 
                     <RaisedButton label="Add Question" onClick={onAddQuestionBtnClick} className="btn-left btn-answer"
                                   primary/>
-
                     <br/>
 
                     <RaisedButton type="submit" label="Create Quiz" className="btn btn-submit" primary/>
+
                 </ValidatorForm>
 
             </Paper>
@@ -69,7 +69,6 @@ QuizForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     errors: PropTypes.object.isRequired,
-    successMessage: PropTypes.string.isRequired,
     quiz: PropTypes.object.isRequired,
     categories: PropTypes.array.isRequired,
 };

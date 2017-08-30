@@ -28,6 +28,8 @@ class CategoryListSelect extends Component {
     };
 
     render() {
+        let categories = this.props.categories;
+
         return (
             <SelectValidator className="input-form"
                              floatingLabelText="Category"
@@ -37,7 +39,7 @@ class CategoryListSelect extends Component {
                              value={this.state.value}
                              onChange={this.handleChange}>
 
-                {this.props.categories.map((category, index) =>
+                {categories.map((category, index) =>
                     <MenuItem key={index} value={category.id} primaryText={category.title}/>
                 )}
             </SelectValidator>
